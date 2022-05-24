@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "./style.scss";
 
 const Sidelink = ({ icon, label, url } : { icon:string, label:string, url:string}) => {
-  const pathname = "/";
-  const substring = pathname.split("/")[1];
 
   return (
     <Link

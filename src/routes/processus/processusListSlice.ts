@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from 'src/config/store';
+import { RootState, AppThunk, AppDispatch } from 'src/config/store';
 import { CurrentLoad } from './processusListHandler';
 
 export interface CounterState {
@@ -74,7 +74,7 @@ export const selectCount = (state: RootState) => state.processusList.value;
 // Here's an example of conditionally dispatching actions based on current state.
 export const incrementIfOdd =
   (amount: number): AppThunk =>
-  (dispatch: any, getState: any) => {
+  (dispatch: AppDispatch, getState: () => RootState) => {
     const currentValue = selectCount(getState());
     if (currentValue % 2 === 1) {
       dispatch(incrementByAmount(amount));

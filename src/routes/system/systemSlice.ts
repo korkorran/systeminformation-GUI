@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { SystemData } from './systemHandler';
 
 export interface SystemState {
@@ -11,7 +11,6 @@ const initialState: SystemState = {
 };
 
 export const getSystemData = createAsyncThunk('system/get', async () => {
-  console.log('hey');
   return await window.electron.system();
 });
 
