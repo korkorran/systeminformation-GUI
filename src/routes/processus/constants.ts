@@ -1,0 +1,5 @@
+export const PROCESSUS_LIST_URL = '/main_window';
+
+export const PROCESSUS_LIST_INVOKE = 'PROCESSUS_LIST_INVOKE';
+
+export const CURRENT_LOAD_INVOKE = 'CURRENT_LOAD_INVOKE';

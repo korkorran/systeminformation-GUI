@@ -1,0 +1,24 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "src/styles/variables";
+
+.Sidebar {
+  background-color: $gray-300;
+  min-width: 200px;
+  overflow-y: auto;
+
+
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow: hidden;
+  display: flex;
+
+  @media print {
+    display: none;
+  }
+}
+
+i {
+  color: orange;
+}
