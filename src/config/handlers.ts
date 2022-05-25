@@ -1,3 +1,5 @@
+import { OS_INVOKE } from 'src/routes/os/constants';
+import { osHandler } from 'src/routes/os/osHandler';
 import {
   CURRENT_LOAD_INVOKE,
   PROCESSUS_LIST_INVOKE
@@ -21,5 +23,9 @@ export const handlers = [
   {
     invoke: SYSTEM_INVOKE,
     handler: systemHandler
+  },
+  {
+    invoke: OS_INVOKE,
+    handler: osHandler
   }
 ];
