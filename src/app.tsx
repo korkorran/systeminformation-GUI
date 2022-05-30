@@ -7,6 +7,7 @@ import { store } from './config/store';
 import { Header } from "./features/header/header";
 import { Sidebar } from "./features/sidebar/sidebar";
 import { routes } from "./config/routes";
+import './styles/style.scss';
 
 
 const container = document.getElementById('app');

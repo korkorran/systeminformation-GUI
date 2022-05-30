@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { OsData } from './osHandler';
+import { OsData, VersionData } from './osHandler';
 
 export interface OsState {
   status: 'idle' | 'loading' | 'failed';
   data?: OsData;
+  versions? : VersionData
 }
 
 const initialState: OsState = {
@@ -13,6 +14,10 @@ const initialState: OsState = {
 export const getOsData = createAsyncThunk('os/osinfo', async () => {
   return await window.electron.os_info();
 });
+
+export const getVersionData = createAsyncThunk('os/versions', async () => {
+  return await window.electron.software_versions()
+})
 
 export const osSlice = createSlice({
   name: 'os',
@@ -32,7 +37,10 @@ export const osSlice = createSlice({
       })
       .addCase(getOsData.rejected, (state) => {
         state.status = 'failed';
-      });
+      })
+      .addCase(getVersionData.fulfilled, (state, action) => {
+        state.versions = action.payload
+      } )
   }
 });
 
