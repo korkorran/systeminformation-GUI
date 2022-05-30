@@ -3,18 +3,19 @@ import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from 'src/config/hooks';
 import Carpet from "src/features/carpet/carpet";
 import {
-  getOsData, getVersionData
+  getOsData, getUsersData, getVersionData
 } from './osSlice';
 
 export const Os = () => {
-
-  const osData = useAppSelector(root => root.os.data);
-  const versionsData = useAppSelector(root => root.os.versions);
   const dispatch = useAppDispatch();
+  const osData = useAppSelector(root => root.os.osData);
+  const versionsData = useAppSelector(root => root.os.versionsData);
+  const usersData = useAppSelector(root => root.os.usersData)
 
   useEffect(() => {
     dispatch(getOsData());
     dispatch(getVersionData());
+    dispatch(getUsersData());
   }, [])
 
   return (<Carpet>
@@ -80,6 +81,34 @@ export const Os = () => {
       {/* <p>PowerShell : {versionsData?.powershell}</p> */}
 
     </div>
+
+    <h2>Users</h2>
+
+    <table className="table">
+      <thead>
+        <tr>
+        <th scope="col">User Name</th>
+        <th scope="col">Terminal</th>
+        <th scope="col">Login Date</th>
+        <th scope="col">Login Time</th>
+        <th scope="col">IP address</th>
+        <th scope="col">Last command</th>
+        </tr>
+      </thead>
+      <tbody>
+        {usersData && usersData.map(user => (
+        <tr>
+          <th scope="row">{user.user}</th>
+          <td>{user.tty}</td>
+          <td>{user.date}</td>
+          <td>{user.time}</td>
+          <td>{user.ip}</td>
+          <td>{user.command}</td>
+        </tr>
+          ))}
+      </tbody>
+
+    </table>
 
   </Carpet>
 )

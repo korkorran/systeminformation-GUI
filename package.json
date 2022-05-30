@@ -1,6 +1,6 @@
 {
-  "name": "etop",
-  "productName": "etop",
+  "name": "systeminformationgui",
+  "productName": "systeminformationGUI",
   "version": "1.0.0",
   "description": "A graphical user interface for System Information",
   "main": ".webpack/main",
@@ -25,7 +25,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "etop"
+            "name": "systeminformationGUI"
           }
         },
         {

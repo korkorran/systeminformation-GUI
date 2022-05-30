@@ -13,3 +13,9 @@ export type VersionData = SI.Systeminformation.VersionData;
 export const softwareVersionsHandler = () => {
   return SI.versions();
 };
+
+export type UsersData = SI.Systeminformation.UserData[];
+
+export const usersHandler: () => Promise<UsersData> = () => {
+  return SI.users();
+};

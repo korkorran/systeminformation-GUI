@@ -12,7 +12,7 @@ export const Header = () => (
         style={{ fontSize: "2rem", color: "orange" }}
       />
 
-      <span className="fs-4">eTop</span>
+      <span className="fs-4">System Information GUI </span>
     </Link>
   </header>
 );

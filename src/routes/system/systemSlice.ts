@@ -1,18 +1,53 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { SystemData } from './systemHandler';
+import {
+  BaseboardData,
+  BiosData,
+  ChassisData,
+  SystemData,
+  UuidData
+} from './systemHandler';
 
 export interface SystemState {
   status: 'idle' | 'loading' | 'failed';
-  data?: SystemData;
+  systemData?: SystemData;
+  uuidData?: UuidData;
+  biosData?: BiosData;
+  baseboardData?: BaseboardData;
+  chassisData?: ChassisData;
 }
 
 const initialState: SystemState = {
   status: 'idle'
 };
 
-export const getSystemData = createAsyncThunk('system/get', async () => {
-  return await window.electron.system();
+export const getSystemData = createAsyncThunk(
+  'system/getSystemData',
+  async () => {
+    return await window.electron.system();
+  }
+);
+
+export const getUuidData = createAsyncThunk('system/getUuidData', async () => {
+  return await window.electron.uuids();
 });
+
+export const getBiosData = createAsyncThunk('system/getBiosData', async () => {
+  return window.electron.bios();
+});
+
+export const getBaseboardData = createAsyncThunk(
+  'system/getBaseboardData',
+  async () => {
+    return window.electron.baseboard();
+  }
+);
+
+export const getChassisData = createAsyncThunk(
+  'system/getChassisData',
+  async () => {
+    return window.electron.chassis();
+  }
+);
 
 export const systemSlice = createSlice({
   name: 'system',
@@ -28,10 +63,22 @@ export const systemSlice = createSlice({
       })
       .addCase(getSystemData.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.data = action.payload;
+        state.systemData = action.payload;
       })
       .addCase(getSystemData.rejected, (state) => {
         state.status = 'failed';
+      })
+      .addCase(getUuidData.fulfilled, (state, action) => {
+        state.uuidData = action.payload;
+      })
+      .addCase(getBiosData.fulfilled, (state, action) => {
+        state.biosData = action.payload;
+      })
+      .addCase(getBaseboardData.fulfilled, (state, action) => {
+        state.baseboardData = action.payload;
+      })
+      .addCase(getChassisData.fulfilled, (state, action) => {
+        state.chassisData = action.payload;
       });
   }
 });
