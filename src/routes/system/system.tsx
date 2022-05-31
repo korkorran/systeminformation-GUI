@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 
 import { useAppSelector, useAppDispatch } from 'src/config/hooks';
 import Carpet from "src/features/carpet/carpet";
+import { Detail } from "src/features/common/detail";
+import { DetailCard } from "src/features/common/detailCard";
 import {
   getBaseboardData,
   getBiosData,
@@ -27,61 +29,52 @@ export const System = () => {
 
   return (<Carpet>
 
-    <h2>System</h2>
 
-      <div >
-        <p>Manufacturer : {systemData?.manufacturer}</p>
-        <p>Model : {systemData?.model}</p>
-        <p>Version : {systemData?.version}</p>
-        <p>Serial Number : {systemData?.serial}</p>
-        <p>UUID : {systemData?.uuid}</p>
-        <p>SKU : {systemData?.sku}</p>
-        <p>Virtual Machine : {JSON.stringify(systemData?.virtual)}</p>
-      </div>
+    <DetailCard label="System" >
+      <Detail label="Manufacturer" value={systemData?.manufacturer} />
+      <Detail label="Model" value={systemData?.model} />
+      <Detail label="Version" value={systemData?.version} />
+      <Detail label="Serial Number" value={systemData?.serial} />
+      <Detail label="UUID" value={systemData?.uuid} />
+      <Detail label="SKU" value={systemData?.sku} />
+      <Detail label="Virtual Machine" value={JSON.stringify(systemData?.virtual)} />
+    </DetailCard>
 
-    <h2>UUIDs</h2>
+    <DetailCard label="UUIDs" >
+      <Detail label="OS" value={uuidData?.os} />
+      <Detail label="Hardware" value={uuidData?.hardware} />
+      <Detail label="Macs" value={JSON.stringify(uuidData?.macs)} />
+    </DetailCard>
 
-    <div>
-      <p>OS : {uuidData?.os}</p>
-      <p>Hardware : {uuidData?.hardware}</p>
-      <p>Macs : {uuidData?.macs}</p>
-    </div>
+    <DetailCard label="BIOS" >
+      <Detail label="Vendor" value={biosData?.vendor} />
+      <Detail label="Version" value={biosData?.version} />
+      <Detail label="Release Date" value={biosData?.releaseDate} />
+      <Detail label="Revision" value={biosData?.revision} />
+      <Detail label="Serial" value={biosData?.serial} />
+      <Detail label="Language" value={biosData?.language} />
+      <Detail label="Features" value={JSON.stringify(biosData?.features)} />
+    </DetailCard>
 
-    <h2>BIOS</h2>
+    <DetailCard label="Baseboard" >
+      <Detail label="Manufacturer" value={baseboardData?.manufacturer} />
+      <Detail label="Model" value={baseboardData?.model} />
+      <Detail label="Version" value={baseboardData?.version} />
+      <Detail label="Serial Number" value={baseboardData?.serial} />
+      <Detail label="Asset Tag" value={baseboardData?.assetTag} />
+      <Detail label="Memory max capacity bytes" value={baseboardData?.memMax} />
+      <Detail label="Number of memory slots" value={baseboardData?.memSlots} />
+    </DetailCard> 
 
-    <div>
-      <p>Vendor : {biosData?.vendor}</p>
-      <p>Version : {biosData?.version}</p>
-      <p>Release Date : {biosData?.releaseDate}</p>
-      <p>Revision : {biosData?.revision}</p>
-      <p>Serial : {biosData?.serial}</p>
-      <p>Language : {biosData?.language}</p>
-      <p>Features : {JSON.stringify(biosData?.features)}</p>
-    </div>
-    
-    <h2>Baseboard</h2>
-
-    <div>
-      <p>Manufacturer : {baseboardData?.manufacturer}</p>
-      <p>Model : {baseboardData?.model}</p>
-      <p>Version : {baseboardData?.version}</p>
-      <p>Serial Number : {baseboardData?.serial}</p>
-      <p>Asset Tag : {baseboardData?.assetTag}</p>
-      <p>Memory max capacity bytes : {baseboardData?.memMax}</p>
-      <p>Number of memory slots : {baseboardData?.memSlots}</p>
-    </div>
-
-    <h2>Chassis</h2>
-
-    <div>
-      <p>Manufacturer : {chassisData?.manufacturer}</p>
-      <p>Model : {chassisData?.model}</p>
-      <p>Type : {chassisData?.type}</p>
-      <p>Version : {chassisData?.version}</p>
-      <p>Serial Number : {chassisData?.serial}</p>
-      <p>Asset Tag : {chassisData?.assetTag}</p>
-      <p>SKU : {chassisData?.sku}</p>
-    </div>
+    <DetailCard label="Chassis" >
+      <Detail label="Manufacturer" value={chassisData?.manufacturer} />
+      <Detail label="Model" value={chassisData?.model} />
+      <Detail label="Type" value={chassisData?.type} />
+      <Detail label="Version" value={chassisData?.version} />
+      <Detail label="Serial Number" value={chassisData?.serial} />
+      <Detail label="Asset Tag" value={chassisData?.assetTag} />
+      <Detail label="SKU" value={chassisData?.sku} />
+    </DetailCard>
 
   </Carpet>
 )

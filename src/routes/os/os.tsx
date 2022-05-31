@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 
 import { useAppSelector, useAppDispatch } from 'src/config/hooks';
 import Carpet from "src/features/carpet/carpet";
+import { Detail } from "src/features/common/detail";
+import { DetailCard } from "src/features/common/detailCard";
 import {
   getOsData, getUsersData, getVersionData
 } from './osSlice';
@@ -20,67 +22,68 @@ export const Os = () => {
 
   return (<Carpet>
 
-    <h2>OS</h2>
+    <DetailCard label="OS">
+        <Detail label="Platform" value={osData?.platform} />
+        <Detail label="Distribution" value={osData?.distro} />
+        <Detail label="Release" value={osData?.release} />
+        <Detail label="Kernel" value={osData?.kernel} />
+        <Detail label="Architecture" value={osData?.arch} />
+        <Detail label="Hostname" value={osData?.hostname} />
+        <Detail label="Fully Qualified Domain Name" value={osData?.fqdn} />
+        <Detail label="Codepage" value={osData?.codepage} />
+        <Detail label="Logofile" value={osData?.logofile} />
+        <Detail label="Serial Number" value={osData?.serial} />
+        <Detail label="UEFI" value={JSON.stringify(osData?.uefi)} />
+        <Detail label="Shell" value={osData?.shell} />
+    </DetailCard>
 
-      <div >
-        <p>Platform : {osData?.platform}</p>
-        <p>Distro : {osData?.distro}</p>
-        <p>Release : {osData?.release}</p>
-        <p>Kernel : {osData?.kernel}</p>
-        <p>Arch : {osData?.arch}</p>
-        <p>Hostname: {osData?.hostname}</p>
-        <p>Fully Qualified Domain Name : {osData?.fqdn}</p>
-        <p>Codepage : {osData?.codepage}</p>
-        <p>Logofile : {osData?.logofile}</p>
-        <p>Serial Number : {osData?.serial}</p>
-        <p>UEFI : {JSON.stringify(osData?.uefi)}</p>
-        <p>Shell : {osData?.shell}</p>
-      </div>
+    <DetailCard label="Software versions / Basic" >
+      <Detail label="Kernel" value={versionsData?.kernel} />
+      <Detail label="OpenSSL" value={versionsData?.openssl} />
+      <Detail label="OS OpenSSL" value={versionsData?.systemOpenssl} />
+      <Detail label="OpenSSL Lib" value={versionsData?.systemOpensslLib} />
+      <Detail label="Git" value={versionsData?.git} />
+    </DetailCard>
 
-    <h2>Software Versions</h2>
-
-    <div>
-      <p>Kernel : {versionsData?.kernel}</p>
-      <p>Node OpenSSL : {versionsData?.openssl}</p>
-      <p>OS OpenSSL : {versionsData?.systemOpenssl}</p>
-      <p>OpenSSL Lib : {versionsData?.systemOpensslLib}</p>
-      <p>Git : {versionsData?.git}</p>
+    <DetailCard label="Software versions / Javascript">
+      <Detail label="Node" value={versionsData?.node} />
+      <Detail label="v8" value={versionsData?.v8} />
+      <Detail label="npm" value={versionsData?.npm} />
+      <Detail label="yarn" value={versionsData?.yarn} />
+      <Detail label="pm2" value={versionsData?.pm2} />
+      <Detail label="Gulp" value={versionsData?.gulp} />
+      <Detail label="Grunt" value={versionsData?.grunt} />
+      <Detail label="TypeScript" value={versionsData?.tsc} />
+    </DetailCard>
+    
+    <DetailCard label="Software versions / Databases" >
+      <Detail label="MySQL" value={versionsData?.mysql} />
+      <Detail label="Redis" value={versionsData?.redis} />
+      <Detail label="MongoDB" value={versionsData?.mongodb} />
+      <Detail label="Postgres" value={versionsData?.postgresql} />
       <hr/>
-      <p>Node : {versionsData?.node}</p>
-      <p>v8 : {versionsData?.v8}</p>
-      <p>npm : {versionsData?.npm}</p>
-      <p>yarn : {versionsData?.yarn}</p>
-      <p>pm2 : {versionsData?.pm2}</p>
-      <p>Gulp : {versionsData?.gulp}</p>
-      <p>Grunt : {versionsData?.grunt}</p>
-      <p>TypeScript : {versionsData?.tsc}</p>
-      <hr/>
-      <p>MySQL : {versionsData?.mysql}</p>
-      <p>Redis : {versionsData?.redis}</p>
-      <p>MongoDB : {versionsData?.mongodb}</p>
-      <p>Postgres : {versionsData?.postgresql}</p>
-      <hr/>
+      <Detail label="NGINX" value={versionsData?.nginx} />
+      <Detail label="Postfix" value={versionsData?.postfix} />
+    </DetailCard>
       {/* <p>Apache :</p> */}
-      <p>NGINX : {versionsData?.nginx}</p>
-      <p>Postfix : {versionsData?.postfix}</p>
-      <hr/>
-      <p>Php : {versionsData?.php}</p>
-      <p>Perl : {versionsData?.perl}</p>
-      <p>Python : {versionsData?.python}</p>
-      <p>Python3 : {versionsData?.python3}</p>
-      <p>Java : {versionsData?.java}</p>
-      <p>Gcc : {versionsData?.gcc}</p>
-      <p>.NET : {versionsData?.dotnet}</p>
-      <hr/>
-      <p>Docker : {versionsData?.docker}</p>
-      <p>Virtual Box : {versionsData?.virtualbox}</p>
-      <hr/>
+    <DetailCard label="Software versions / Languages">
+      <Detail label="Php" value={versionsData?.php} />
+      <Detail label="Perl" value={versionsData?.perl} />
+      <Detail label="Python" value={versionsData?.python} />
+      <Detail label="Python3" value={versionsData?.python3} />
+      <Detail label="Java" value={versionsData?.java} />
+      <Detail label="Gcc" value={versionsData?.gcc} />
+      <Detail label=".NET" value={versionsData?.dotnet} />
+    </DetailCard>
+    <DetailCard label="Software versions / virtualization">
+      <Detail label="Docker" value={versionsData?.docker} />
+      <Detail label="Virtual Box" value={versionsData?.virtualbox} />
+    </DetailCard>
       {/* <p>Bash : {versionsData?.bash}</p> */}
       {/* <p>Zsh : {versionsData?.zsh}</p> */}
       {/* <p>Fish : {versionsData?.fish}</p> */}
       {/* <p>PowerShell : {versionsData?.powershell}</p> */}
 
-    </div>
 
     <h2>Users</h2>
 
@@ -97,7 +100,7 @@ export const Os = () => {
       </thead>
       <tbody>
         {usersData && usersData.map(user => (
-        <tr>
+        <tr key={user.user}>
           <th scope="row">{user.user}</th>
           <td>{user.tty}</td>
           <td>{user.date}</td>
