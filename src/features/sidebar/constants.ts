@@ -1,11 +1,12 @@
+import { GRAPHICS_URL } from 'src/routes/graphics/constants';
 import { OS_URL } from 'src/routes/os/constants';
 import { PROCESSUS_LIST_URL } from 'src/routes/processus/constants';
 import { SYSTEM_URL } from 'src/routes/system/constants';
 
-export const SIDEBAR_LINK_PROCESSUS = {
+export const SIDEBAR_LINK_GRAPHICS = {
   icon: 'bi-arrow-down-right-square-fill',
-  label: 'Processus',
-  url: PROCESSUS_LIST_URL
+  label: 'Graphics',
+  url: GRAPHICS_URL
 };
 
 export const SIDEBAR_LINK_SYSTEM = {
@@ -23,5 +24,5 @@ export const SIDEBAR_LINK_OS = {
 export const links = [
   SIDEBAR_LINK_SYSTEM,
   SIDEBAR_LINK_OS,
-  SIDEBAR_LINK_PROCESSUS
+  SIDEBAR_LINK_GRAPHICS
 ];

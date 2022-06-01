@@ -24,6 +24,8 @@ import {
   UuidData
 } from './routes/system/systemHandler';
 import { OsData, UsersData, VersionData } from './routes/os/osHandler';
+import { GraphicsData } from './routes/graphics/graphicsHandler';
+import { GRAPHICS_INVOKE } from './routes/graphics/constants';
 
 declare global {
   interface Window {
@@ -38,6 +40,7 @@ declare global {
       baseboard: () => Promise<BaseboardData>;
       chassis: () => Promise<ChassisData>;
       users: () => Promise<UsersData>;
+      graphics: () => Promise<GraphicsData>;
     };
   }
 }
@@ -52,5 +55,6 @@ contextBridge.exposeInMainWorld('electron', {
   bios: () => ipcRenderer.invoke(BIOS_INVOKE),
   baseboard: () => ipcRenderer.invoke(BASEBOARD_INVOKE),
   chassis: () => ipcRenderer.invoke(CHASSIS_INVOKE),
-  users: () => ipcRenderer.invoke(USERS_INVOKE)
+  users: () => ipcRenderer.invoke(USERS_INVOKE),
+  graphics: () => ipcRenderer.invoke(GRAPHICS_INVOKE)
 });

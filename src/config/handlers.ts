@@ -1,3 +1,5 @@
+import { GRAPHICS_INVOKE } from 'src/routes/graphics/constants';
+import { graphicsHandler } from 'src/routes/graphics/graphicsHandler';
 import {
   OS_INVOKE,
   USERS_INVOKE,
@@ -69,9 +71,17 @@ const systemHandlers = [
   }
 ];
 
+const graphicsHandlers = [
+  {
+    invoke: GRAPHICS_INVOKE,
+    handler: graphicsHandler
+  }
+];
+
 export const handlers = [
   ...osHandlers,
   ...systemHandlers,
+  ...graphicsHandlers,
   {
     invoke: PROCESSUS_LIST_INVOKE,
     handler: processusListHandler
