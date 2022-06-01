@@ -61,7 +61,6 @@ export const Os = () => {
       <Detail label="Redis" value={versionsData?.redis} />
       <Detail label="MongoDB" value={versionsData?.mongodb} />
       <Detail label="Postgres" value={versionsData?.postgresql} />
-      <hr/>
       <Detail label="NGINX" value={versionsData?.nginx} />
       <Detail label="Postfix" value={versionsData?.postfix} />
     </DetailCard>
