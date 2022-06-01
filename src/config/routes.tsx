@@ -7,10 +7,13 @@ import { OS_URL } from "src/routes/os/constants";
 import { Os } from "src/routes/os/os";
 import { GRAPHICS_URL } from "src/routes/graphics/constants";
 import { Graphics } from "src/routes/graphics/graphics";
+import { CPU_URL } from "src/routes/cpu/constants";
+import { Cpu } from "src/routes/cpu/cpu";
 
 export const routes = [
   { path: PROCESSUS_LIST_URL, component: <ProcessusList /> },
   { path: SYSTEM_URL, component: <System />}, 
   { path: OS_URL, component: <Os />},
-  { path: GRAPHICS_URL, component: <Graphics />}
+  { path: GRAPHICS_URL, component: <Graphics />},
+  { path: CPU_URL, component: <Cpu /> }
 ];

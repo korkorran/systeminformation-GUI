@@ -26,6 +26,8 @@ import {
 import { OsData, UsersData, VersionData } from './routes/os/osHandler';
 import { GraphicsData } from './routes/graphics/graphicsHandler';
 import { GRAPHICS_INVOKE } from './routes/graphics/constants';
+import { CpuData } from './routes/cpu/cpuHandler';
+import { CPU_INVOKE } from './routes/cpu/constants';
 
 declare global {
   interface Window {
@@ -41,6 +43,7 @@ declare global {
       chassis: () => Promise<ChassisData>;
       users: () => Promise<UsersData>;
       graphics: () => Promise<GraphicsData>;
+      cpu: () => Promise<CpuData>;
     };
   }
 }
@@ -56,5 +59,6 @@ contextBridge.exposeInMainWorld('electron', {
   baseboard: () => ipcRenderer.invoke(BASEBOARD_INVOKE),
   chassis: () => ipcRenderer.invoke(CHASSIS_INVOKE),
   users: () => ipcRenderer.invoke(USERS_INVOKE),
-  graphics: () => ipcRenderer.invoke(GRAPHICS_INVOKE)
+  graphics: () => ipcRenderer.invoke(GRAPHICS_INVOKE),
+  cpu: () => ipcRenderer.invoke(CPU_INVOKE)
 });

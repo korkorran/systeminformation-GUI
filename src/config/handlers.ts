@@ -1,3 +1,5 @@
+import { CPU_INVOKE } from 'src/routes/cpu/constants';
+import { cpuHandler } from 'src/routes/cpu/cpuHandler';
 import { GRAPHICS_INVOKE } from 'src/routes/graphics/constants';
 import { graphicsHandler } from 'src/routes/graphics/graphicsHandler';
 import {
@@ -78,10 +80,18 @@ const graphicsHandlers = [
   }
 ];
 
+const cpuHandlers = [
+  {
+    invoke: CPU_INVOKE,
+    handler: cpuHandler
+  }
+];
+
 export const handlers = [
   ...osHandlers,
   ...systemHandlers,
   ...graphicsHandlers,
+  ...cpuHandlers,
   {
     invoke: PROCESSUS_LIST_INVOKE,
     handler: processusListHandler
