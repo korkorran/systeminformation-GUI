@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { GraphicsData } from './graphicsHandler';
 
-export interface OsState {
+export interface GraphicsState {
   status: 'idle' | 'loading' | 'failed';
   graphicsData?: GraphicsData;
 }
 
-const initialState: OsState = {
+const initialState: GraphicsState = {
   status: 'idle'
 };
 

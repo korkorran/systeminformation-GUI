@@ -1,3 +1,5 @@
+import { audioHandler } from 'src/routes/audio/audioHandler';
+import { AUDIO_INVOKE } from 'src/routes/audio/constants';
 import { CPU_INVOKE } from 'src/routes/cpu/constants';
 import { cpuHandler } from 'src/routes/cpu/cpuHandler';
 import { GRAPHICS_INVOKE } from 'src/routes/graphics/constants';
@@ -80,6 +82,13 @@ const graphicsHandlers = [
   }
 ];
 
+const audioHandlers = [
+  {
+    invoke: AUDIO_INVOKE,
+    handler: audioHandler
+  }
+]
+
 const cpuHandlers = [
   {
     invoke: CPU_INVOKE,
@@ -91,6 +100,7 @@ export const handlers = [
   ...osHandlers,
   ...systemHandlers,
   ...graphicsHandlers,
+  ...audioHandlers,
   ...cpuHandlers,
   {
     invoke: PROCESSUS_LIST_INVOKE,

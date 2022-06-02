@@ -1,6 +1,6 @@
 import React from "react"
 
-export const Detail = ({label, value, emptyIsRelevant = false} : {label : string, value : string | number, emptyIsRelevant?: boolean}) => (
+export const Detail = ({label, value, emptyIsRelevant = false} : {label : string, value : string | number | boolean, emptyIsRelevant?: boolean}) => (
   <>
   {(value || emptyIsRelevant) && (
     <tr>
@@ -8,7 +8,7 @@ export const Detail = ({label, value, emptyIsRelevant = false} : {label : string
         {label}
       </th>
       <td>
-       {value ?? "None"}
+       {typeof value === "boolean" ? JSON.stringify(value) : value ?? "None"}
       </td>
     </tr>
   )}

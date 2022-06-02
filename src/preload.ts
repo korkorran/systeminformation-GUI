@@ -28,6 +28,8 @@ import { GraphicsData } from './routes/graphics/graphicsHandler';
 import { GRAPHICS_INVOKE } from './routes/graphics/constants';
 import { CpuData } from './routes/cpu/cpuHandler';
 import { CPU_INVOKE } from './routes/cpu/constants';
+import { AudioData } from './routes/audio/audioHandler';
+import { AUDIO_INVOKE } from './routes/audio/constants';
 
 declare global {
   interface Window {
@@ -44,6 +46,7 @@ declare global {
       users: () => Promise<UsersData>;
       graphics: () => Promise<GraphicsData>;
       cpu: () => Promise<CpuData>;
+      audio : () => Promise<AudioData>
     };
   }
 }
@@ -60,5 +63,6 @@ contextBridge.exposeInMainWorld('electron', {
   chassis: () => ipcRenderer.invoke(CHASSIS_INVOKE),
   users: () => ipcRenderer.invoke(USERS_INVOKE),
   graphics: () => ipcRenderer.invoke(GRAPHICS_INVOKE),
-  cpu: () => ipcRenderer.invoke(CPU_INVOKE)
+  cpu: () => ipcRenderer.invoke(CPU_INVOKE),
+  audio: () => ipcRenderer.invoke(AUDIO_INVOKE)
 });

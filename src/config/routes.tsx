@@ -9,11 +9,14 @@ import { GRAPHICS_URL } from "src/routes/graphics/constants";
 import { Graphics } from "src/routes/graphics/graphics";
 import { CPU_URL } from "src/routes/cpu/constants";
 import { Cpu } from "src/routes/cpu/cpu";
+import { AUDIO_URL } from "src/routes/audio/constants";
+import { Audio } from "src/routes/audio/audio";
 
 export const routes = [
   { path: PROCESSUS_LIST_URL, component: <ProcessusList /> },
   { path: SYSTEM_URL, component: <System />}, 
   { path: OS_URL, component: <Os />},
   { path: GRAPHICS_URL, component: <Graphics />},
-  { path: CPU_URL, component: <Cpu /> }
+  { path: CPU_URL, component: <Cpu /> },
+  { path: AUDIO_URL, component: <Audio />}
 ];
