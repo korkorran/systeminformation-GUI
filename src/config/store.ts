@@ -5,6 +5,7 @@ import osReducer from 'src/routes/os/osSlice';
 import graphicsSlice from 'src/routes/graphics/graphicsSlice';
 import cpuSlice from 'src/routes/cpu/cpuSlice';
 import audioSlice from 'src/routes/audio/audioSlice';
+import batterySlice from 'src/routes/battery/batterySlice';
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
     os: osReducer,
     graphics: graphicsSlice,
     cpu: cpuSlice,
-    audio: audioSlice
+    audio: audioSlice,
+    battery: batterySlice,
   }
 });
 

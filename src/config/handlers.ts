@@ -1,5 +1,7 @@
 import { audioHandler } from 'src/routes/audio/audioHandler';
 import { AUDIO_INVOKE } from 'src/routes/audio/constants';
+import { batteryHandler } from 'src/routes/battery/batteryHandler';
+import { BATTERY_INVOKE } from 'src/routes/battery/constants';
 import { CPU_INVOKE } from 'src/routes/cpu/constants';
 import { cpuHandler } from 'src/routes/cpu/cpuHandler';
 import { GRAPHICS_INVOKE } from 'src/routes/graphics/constants';
@@ -96,12 +98,20 @@ const cpuHandlers = [
   }
 ];
 
+const batteryHandlers = [
+  {
+    invoke: BATTERY_INVOKE,
+    handler: batteryHandler
+  }
+]
+
 export const handlers = [
   ...osHandlers,
   ...systemHandlers,
   ...graphicsHandlers,
   ...audioHandlers,
   ...cpuHandlers,
+  ...batteryHandlers,
   {
     invoke: PROCESSUS_LIST_INVOKE,
     handler: processusListHandler

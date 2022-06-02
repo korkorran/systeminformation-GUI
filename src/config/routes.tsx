@@ -11,6 +11,8 @@ import { CPU_URL } from "src/routes/cpu/constants";
 import { Cpu } from "src/routes/cpu/cpu";
 import { AUDIO_URL } from "src/routes/audio/constants";
 import { Audio } from "src/routes/audio/audio";
+import { BATTERY_URL } from "src/routes/battery/constants";
+import { Battery } from "src/routes/battery/battery";
 
 export const routes = [
   { path: PROCESSUS_LIST_URL, component: <ProcessusList /> },
@@ -18,5 +20,6 @@ export const routes = [
   { path: OS_URL, component: <Os />},
   { path: GRAPHICS_URL, component: <Graphics />},
   { path: CPU_URL, component: <Cpu /> },
-  { path: AUDIO_URL, component: <Audio />}
+  { path: AUDIO_URL, component: <Audio />},
+  { path: BATTERY_URL, component: <Battery />}
 ];
