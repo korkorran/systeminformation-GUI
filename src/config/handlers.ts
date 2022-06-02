@@ -6,6 +6,8 @@ import { CPU_INVOKE } from 'src/routes/cpu/constants';
 import { cpuHandler } from 'src/routes/cpu/cpuHandler';
 import { GRAPHICS_INVOKE } from 'src/routes/graphics/constants';
 import { graphicsHandler } from 'src/routes/graphics/graphicsHandler';
+import { MEMORY_INVOKE, MEMORY_LAYOUT_INVOKE } from 'src/routes/memory/constants';
+import { memoryHandler, memoryLayoutHandler } from 'src/routes/memory/memoryHandler';
 import {
   OS_INVOKE,
   USERS_INVOKE,
@@ -105,6 +107,17 @@ const batteryHandlers = [
   }
 ]
 
+const memoryHandlers = [
+  {
+    invoke: MEMORY_INVOKE,
+    handler: memoryHandler,
+  },
+  {
+    invoke: MEMORY_LAYOUT_INVOKE,
+    handler: memoryLayoutHandler
+  }
+]
+
 export const handlers = [
   ...osHandlers,
   ...systemHandlers,
@@ -112,6 +125,7 @@ export const handlers = [
   ...audioHandlers,
   ...cpuHandlers,
   ...batteryHandlers,
+  ...memoryHandlers,
   {
     invoke: PROCESSUS_LIST_INVOKE,
     handler: processusListHandler

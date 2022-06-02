@@ -13,6 +13,8 @@ import { AUDIO_URL } from "src/routes/audio/constants";
 import { Audio } from "src/routes/audio/audio";
 import { BATTERY_URL } from "src/routes/battery/constants";
 import { Battery } from "src/routes/battery/battery";
+import { MEMORY_URL } from "src/routes/memory/constants";
+import { Memory } from "src/routes/memory/memory";
 
 export const routes = [
   { path: PROCESSUS_LIST_URL, component: <ProcessusList /> },
@@ -21,5 +23,6 @@ export const routes = [
   { path: GRAPHICS_URL, component: <Graphics />},
   { path: CPU_URL, component: <Cpu /> },
   { path: AUDIO_URL, component: <Audio />},
-  { path: BATTERY_URL, component: <Battery />}
+  { path: BATTERY_URL, component: <Battery />},
+  { path: MEMORY_URL, component: <Memory />}
 ];

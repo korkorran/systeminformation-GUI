@@ -32,6 +32,8 @@ import { AudioData } from './routes/audio/audioHandler';
 import { AUDIO_INVOKE } from './routes/audio/constants';
 import { BatteryData } from './routes/battery/batteryHandler';
 import { BATTERY_INVOKE } from './routes/battery/constants';
+import { MemoryData, MemoryLayoutData } from './routes/memory/memoryHandler';
+import { MEMORY_INVOKE, MEMORY_LAYOUT_INVOKE } from './routes/memory/constants';
 
 declare global {
   interface Window {
@@ -50,6 +52,8 @@ declare global {
       cpu: () => Promise<CpuData>;
       audio : () => Promise<AudioData>;
       battery : () => Promise<BatteryData>;
+      memory: () => Promise<MemoryData>;
+      memory_layout: () => Promise<MemoryLayoutData>
     };
   }
 }
@@ -68,5 +72,7 @@ contextBridge.exposeInMainWorld('electron', {
   graphics: () => ipcRenderer.invoke(GRAPHICS_INVOKE),
   cpu: () => ipcRenderer.invoke(CPU_INVOKE),
   audio: () => ipcRenderer.invoke(AUDIO_INVOKE),
-  battery: () => ipcRenderer.invoke(BATTERY_INVOKE)
+  battery: () => ipcRenderer.invoke(BATTERY_INVOKE),
+  memory: () => ipcRenderer.invoke(MEMORY_INVOKE),
+  memory_layout: () => ipcRenderer.invoke(MEMORY_LAYOUT_INVOKE),
 });
