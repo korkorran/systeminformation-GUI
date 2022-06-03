@@ -7,6 +7,7 @@ import cpuSlice from 'src/routes/cpu/cpuSlice';
 import audioSlice from 'src/routes/audio/audioSlice';
 import batterySlice from 'src/routes/battery/batterySlice';
 import memorySlice from 'src/routes/memory/memorySlice';
+import usbSlice from 'src/routes/usb/usbSlice';
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     audio: audioSlice,
     battery: batterySlice,
     memory: memorySlice,
+    usb: usbSlice,
   }
 });
 

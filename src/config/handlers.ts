@@ -40,6 +40,8 @@ import {
   systemHandler,
   uuidsHandler
 } from 'src/routes/system/systemHandler';
+import { USB_INVOKE } from 'src/routes/usb/constants';
+import { usbHandler } from 'src/routes/usb/usbHandler';
 
 const osHandlers = [
   {
@@ -118,6 +120,13 @@ const memoryHandlers = [
   }
 ]
 
+const usbHandlers = [
+  {
+    invoke: USB_INVOKE,
+    handler: usbHandler
+  }
+]
+
 export const handlers = [
   ...osHandlers,
   ...systemHandlers,
@@ -126,6 +135,7 @@ export const handlers = [
   ...cpuHandlers,
   ...batteryHandlers,
   ...memoryHandlers,
+  ...usbHandlers,
   {
     invoke: PROCESSUS_LIST_INVOKE,
     handler: processusListHandler
