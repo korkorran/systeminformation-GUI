@@ -18,6 +18,8 @@ import {
   softwareVersionsHandler,
   usersHandler
 } from 'src/routes/os/osHandler';
+import { PRINTER_INVOKE } from 'src/routes/printer/constants';
+import { printerHandler } from 'src/routes/printer/printerHandler';
 import {
   CURRENT_LOAD_INVOKE,
   PROCESSUS_LIST_INVOKE
@@ -127,6 +129,13 @@ const usbHandlers = [
   }
 ]
 
+const printerHandlers = [
+  {
+    invoke: PRINTER_INVOKE,
+    handler: printerHandler,
+  }
+]
+
 export const handlers = [
   ...osHandlers,
   ...systemHandlers,
@@ -136,6 +145,7 @@ export const handlers = [
   ...batteryHandlers,
   ...memoryHandlers,
   ...usbHandlers,
+  ...printerHandlers,
   {
     invoke: PROCESSUS_LIST_INVOKE,
     handler: processusListHandler

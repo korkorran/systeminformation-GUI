@@ -17,6 +17,8 @@ import { MEMORY_URL } from "src/routes/memory/constants";
 import { Memory } from "src/routes/memory/memory";
 import { USB_URL } from "src/routes/usb/constants";
 import { Usb } from "src/routes/usb/usb";
+import { PRINTER_URL } from "src/routes/printer/constants";
+import { Printer } from "src/routes/printer/printer";
 
 export const routes = [
   { path: PROCESSUS_LIST_URL, component: <ProcessusList /> },
@@ -27,5 +29,6 @@ export const routes = [
   { path: AUDIO_URL, component: <Audio />},
   { path: BATTERY_URL, component: <Battery />},
   { path: MEMORY_URL, component: <Memory />},
-  { path: USB_URL, component: <Usb />}
+  { path: USB_URL, component: <Usb />},
+  { path: PRINTER_URL, component: <Printer />}
 ];

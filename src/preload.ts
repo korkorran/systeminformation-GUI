@@ -36,6 +36,8 @@ import { MemoryData, MemoryLayoutData } from './routes/memory/memoryHandler';
 import { MEMORY_INVOKE, MEMORY_LAYOUT_INVOKE } from './routes/memory/constants';
 import { UsbData } from './routes/usb/usbHandler';
 import { USB_INVOKE } from './routes/usb/constants';
+import { PrinterData } from './routes/printer/printerHandler';
+import { PRINTER_INVOKE } from './routes/printer/constants';
 
 declare global {
   interface Window {
@@ -57,6 +59,7 @@ declare global {
       memory: () => Promise<MemoryData>;
       memory_layout: () => Promise<MemoryLayoutData>;
       usb: () => Promise<UsbData>;
+      printer : () => Promise<PrinterData>
     };
   }
 }
@@ -79,4 +82,5 @@ contextBridge.exposeInMainWorld('electron', {
   memory: () => ipcRenderer.invoke(MEMORY_INVOKE),
   memory_layout: () => ipcRenderer.invoke(MEMORY_LAYOUT_INVOKE),
   usb: () => ipcRenderer.invoke(USB_INVOKE),
+  printer: () => ipcRenderer.invoke(PRINTER_INVOKE),
 });
