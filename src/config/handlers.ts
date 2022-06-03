@@ -6,8 +6,16 @@ import { CPU_INVOKE } from 'src/routes/cpu/constants';
 import { cpuHandler } from 'src/routes/cpu/cpuHandler';
 import { GRAPHICS_INVOKE } from 'src/routes/graphics/constants';
 import { graphicsHandler } from 'src/routes/graphics/graphicsHandler';
-import { MEMORY_INVOKE, MEMORY_LAYOUT_INVOKE } from 'src/routes/memory/constants';
-import { memoryHandler, memoryLayoutHandler } from 'src/routes/memory/memoryHandler';
+import {
+  MEMORY_INVOKE,
+  MEMORY_LAYOUT_INVOKE
+} from 'src/routes/memory/constants';
+import {
+  memoryHandler,
+  memoryLayoutHandler
+} from 'src/routes/memory/memoryHandler';
+import { NETWORK_INTERFACES_INVOKE } from 'src/routes/network/constants';
+import { networkInterfaceHandler } from 'src/routes/network/networkHandler';
 import {
   OS_INVOKE,
   USERS_INVOKE,
@@ -95,7 +103,7 @@ const audioHandlers = [
     invoke: AUDIO_INVOKE,
     handler: audioHandler
   }
-]
+];
 
 const cpuHandlers = [
   {
@@ -109,32 +117,39 @@ const batteryHandlers = [
     invoke: BATTERY_INVOKE,
     handler: batteryHandler
   }
-]
+];
 
 const memoryHandlers = [
   {
     invoke: MEMORY_INVOKE,
-    handler: memoryHandler,
+    handler: memoryHandler
   },
   {
     invoke: MEMORY_LAYOUT_INVOKE,
     handler: memoryLayoutHandler
   }
-]
+];
 
 const usbHandlers = [
   {
     invoke: USB_INVOKE,
     handler: usbHandler
   }
-]
+];
 
 const printerHandlers = [
   {
     invoke: PRINTER_INVOKE,
-    handler: printerHandler,
+    handler: printerHandler
   }
-]
+];
+
+const networkHandlers = [
+  {
+    invoke: NETWORK_INTERFACES_INVOKE,
+    handler: networkInterfaceHandler
+  }
+];
 
 export const handlers = [
   ...osHandlers,
@@ -146,6 +161,7 @@ export const handlers = [
   ...memoryHandlers,
   ...usbHandlers,
   ...printerHandlers,
+  ...networkHandlers,
   {
     invoke: PROCESSUS_LIST_INVOKE,
     handler: processusListHandler

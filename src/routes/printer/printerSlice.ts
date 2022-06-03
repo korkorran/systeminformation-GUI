@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { PrinterData } from './printerHandler';
 
-
 export interface PrinterState {
   status: 'idle' | 'loading' | 'failed';
   printerData?: PrinterData;

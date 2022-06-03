@@ -9,6 +9,7 @@ import batterySlice from 'src/routes/battery/batterySlice';
 import memorySlice from 'src/routes/memory/memorySlice';
 import usbSlice from 'src/routes/usb/usbSlice';
 import printerSlice from 'src/routes/printer/printerSlice';
+import networkSlice from 'src/routes/network/networkSlice';
 
 export const store = configureStore({
   reducer: {
@@ -21,7 +22,8 @@ export const store = configureStore({
     battery: batterySlice,
     memory: memorySlice,
     usb: usbSlice,
-    printer: printerSlice
+    printer: printerSlice,
+    network: networkSlice
   }
 });
 

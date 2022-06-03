@@ -19,6 +19,8 @@ import { USB_URL } from "src/routes/usb/constants";
 import { Usb } from "src/routes/usb/usb";
 import { PRINTER_URL } from "src/routes/printer/constants";
 import { Printer } from "src/routes/printer/printer";
+import { NETWORK_URL } from "src/routes/network/constants";
+import { Network } from "src/routes/network/network";
 
 export const routes = [
   { path: PROCESSUS_LIST_URL, component: <ProcessusList /> },
@@ -30,5 +32,6 @@ export const routes = [
   { path: BATTERY_URL, component: <Battery />},
   { path: MEMORY_URL, component: <Memory />},
   { path: USB_URL, component: <Usb />},
-  { path: PRINTER_URL, component: <Printer />}
+  { path: PRINTER_URL, component: <Printer />},
+  { path: NETWORK_URL, component: <Network />}
 ];

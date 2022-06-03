@@ -10,12 +10,9 @@ const initialState: AudioState = {
   status: 'idle'
 };
 
-export const getAudioData = createAsyncThunk(
-  'audio/getAudioData',
-  async () => {
-    return await window.electron.audio();
-  }
-);
+export const getAudioData = createAsyncThunk('audio/getAudioData', async () => {
+  return await window.electron.audio();
+});
 
 export const graphicsSlice = createSlice({
   name: 'audio',

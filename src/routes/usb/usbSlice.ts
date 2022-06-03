@@ -10,12 +10,9 @@ const initialState: UsbState = {
   status: 'idle'
 };
 
-export const getUsbData = createAsyncThunk(
-  'usb/getUsbData',
-  async () => {
-    return await window.electron.usb();
-  }
-);
+export const getUsbData = createAsyncThunk('usb/getUsbData', async () => {
+  return await window.electron.usb();
+});
 
 export const usbSlice = createSlice({
   name: 'usb',

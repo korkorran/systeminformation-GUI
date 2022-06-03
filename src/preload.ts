@@ -38,6 +38,8 @@ import { UsbData } from './routes/usb/usbHandler';
 import { USB_INVOKE } from './routes/usb/constants';
 import { PrinterData } from './routes/printer/printerHandler';
 import { PRINTER_INVOKE } from './routes/printer/constants';
+import { NetworkInterfacesData } from './routes/network/networkHandler';
+import { NETWORK_INTERFACES_INVOKE } from './routes/network/constants';
 
 declare global {
   interface Window {
@@ -54,12 +56,13 @@ declare global {
       users: () => Promise<UsersData>;
       graphics: () => Promise<GraphicsData>;
       cpu: () => Promise<CpuData>;
-      audio : () => Promise<AudioData>;
-      battery : () => Promise<BatteryData>;
+      audio: () => Promise<AudioData>;
+      battery: () => Promise<BatteryData>;
       memory: () => Promise<MemoryData>;
       memory_layout: () => Promise<MemoryLayoutData>;
       usb: () => Promise<UsbData>;
-      printer : () => Promise<PrinterData>
+      printer: () => Promise<PrinterData>;
+      network_interfaces: () => Promise<NetworkInterfacesData>;
     };
   }
 }
@@ -83,4 +86,5 @@ contextBridge.exposeInMainWorld('electron', {
   memory_layout: () => ipcRenderer.invoke(MEMORY_LAYOUT_INVOKE),
   usb: () => ipcRenderer.invoke(USB_INVOKE),
   printer: () => ipcRenderer.invoke(PRINTER_INVOKE),
+  network_interfaces: () => ipcRenderer.invoke(NETWORK_INTERFACES_INVOKE)
 });

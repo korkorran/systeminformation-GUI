@@ -45,7 +45,7 @@ export const memorySlice = createSlice({
         state.status = 'failed';
       })
       .addCase(getMemoryLayoutData.fulfilled, (state, action) => {
-        state.memoryLayoutData = action.payload
+        state.memoryLayoutData = action.payload;
       });
   }
 });
