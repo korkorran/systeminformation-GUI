@@ -38,8 +38,16 @@ import { UsbData } from './routes/usb/usbHandler';
 import { USB_INVOKE } from './routes/usb/constants';
 import { PrinterData } from './routes/printer/printerHandler';
 import { PRINTER_INVOKE } from './routes/printer/constants';
-import { NetworkInterfacesData } from './routes/network/networkHandler';
-import { NETWORK_INTERFACES_INVOKE } from './routes/network/constants';
+import {
+  NetworkConnectionsData,
+  NetworkInterfacesData,
+  NetworkStatsData
+} from './routes/network/networkHandler';
+import {
+  NETWORK_CONNECTIONS_INVOKE,
+  NETWORK_INTERFACES_INVOKE,
+  NETWORK_STATS_INVOKE
+} from './routes/network/constants';
 
 declare global {
   interface Window {
@@ -63,6 +71,8 @@ declare global {
       usb: () => Promise<UsbData>;
       printer: () => Promise<PrinterData>;
       network_interfaces: () => Promise<NetworkInterfacesData>;
+      network_stats: () => Promise<NetworkStatsData>;
+      network_connections: () => Promise<NetworkConnectionsData>;
     };
   }
 }
@@ -86,5 +96,7 @@ contextBridge.exposeInMainWorld('electron', {
   memory_layout: () => ipcRenderer.invoke(MEMORY_LAYOUT_INVOKE),
   usb: () => ipcRenderer.invoke(USB_INVOKE),
   printer: () => ipcRenderer.invoke(PRINTER_INVOKE),
-  network_interfaces: () => ipcRenderer.invoke(NETWORK_INTERFACES_INVOKE)
+  network_interfaces: () => ipcRenderer.invoke(NETWORK_INTERFACES_INVOKE),
+  network_stats: () => ipcRenderer.invoke(NETWORK_STATS_INVOKE),
+  network_connections: () => ipcRenderer.invoke(NETWORK_CONNECTIONS_INVOKE)
 });

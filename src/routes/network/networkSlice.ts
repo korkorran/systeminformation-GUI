@@ -1,9 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { NetworkInterfacesData } from './networkHandler';
+import { NetworkConnectionsData, NetworkInterfacesData, NetworkStatsData } from './networkHandler';
 
 export interface NetworkState {
   status: 'idle' | 'loading' | 'failed';
   networkInterfacesData?: NetworkInterfacesData;
+  networkStatsData?: NetworkStatsData;
+  networkConnectionsData?: NetworkConnectionsData;
 }
 
 const initialState: NetworkState = {
@@ -14,6 +16,20 @@ export const getNetworkInterfacesData = createAsyncThunk(
   'network/getNetworkInterfacesData',
   async () => {
     return await window.electron.network_interfaces();
+  }
+);
+
+export const getNetworkStatsData = createAsyncThunk(
+  'network/getNetworkStatsData',
+  async () => {
+    return await window.electron.network_stats();
+  }
+);
+
+export const getNetworkConnectionsData = createAsyncThunk(
+  'network/getNetworkConnectionsData',
+  async () => {
+    return await window.electron.network_connections();
   }
 );
 
@@ -35,6 +51,12 @@ export const networkSlice = createSlice({
       })
       .addCase(getNetworkInterfacesData.rejected, (state) => {
         state.status = 'failed';
+      })
+      .addCase(getNetworkStatsData.fulfilled, (state, action) => {
+        state.networkStatsData = action.payload
+      })
+      .addCase(getNetworkConnectionsData.fulfilled, (state, action) => {
+        state.networkConnectionsData = action.payload
       });
   }
 });

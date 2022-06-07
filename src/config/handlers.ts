@@ -14,8 +14,16 @@ import {
   memoryHandler,
   memoryLayoutHandler
 } from 'src/routes/memory/memoryHandler';
-import { NETWORK_INTERFACES_INVOKE } from 'src/routes/network/constants';
-import { networkInterfaceHandler } from 'src/routes/network/networkHandler';
+import {
+  NETWORK_CONNECTIONS_INVOKE,
+  NETWORK_INTERFACES_INVOKE,
+  NETWORK_STATS_INVOKE
+} from 'src/routes/network/constants';
+import {
+  networkConnectionsHandler,
+  networkInterfaceHandler,
+  networkStatsHandler
+} from 'src/routes/network/networkHandler';
 import {
   OS_INVOKE,
   USERS_INVOKE,
@@ -148,6 +156,14 @@ const networkHandlers = [
   {
     invoke: NETWORK_INTERFACES_INVOKE,
     handler: networkInterfaceHandler
+  },
+  {
+    invoke: NETWORK_STATS_INVOKE,
+    handler: networkStatsHandler
+  },
+  {
+    invoke: NETWORK_CONNECTIONS_INVOKE,
+    handler: networkConnectionsHandler
   }
 ];
 
