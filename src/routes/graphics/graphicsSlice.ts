@@ -13,7 +13,7 @@ const initialState: GraphicsState = {
 export const getGraphicsData = createAsyncThunk(
   'graphics/getGraphicsData',
   async () => {
-    return await window.electron.graphics();
+    return await window.invoke.graphics();
   }
 );
 

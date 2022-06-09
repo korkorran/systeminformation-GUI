@@ -15,21 +15,21 @@ const initialState: NetworkState = {
 export const getNetworkInterfacesData = createAsyncThunk(
   'network/getNetworkInterfacesData',
   async () => {
-    return await window.electron.network_interfaces();
+    return await window.invoke.network_interfaces();
   }
 );
 
 export const getNetworkStatsData = createAsyncThunk(
   'network/getNetworkStatsData',
   async () => {
-    return await window.electron.network_stats();
+    return await window.invoke.network_stats();
   }
 );
 
 export const getNetworkConnectionsData = createAsyncThunk(
   'network/getNetworkConnectionsData',
   async () => {
-    return await window.electron.network_connections();
+    return await window.invoke.network_connections();
   }
 );
 

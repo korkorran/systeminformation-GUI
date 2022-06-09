@@ -13,7 +13,7 @@ const initialState: PrinterState = {
 export const getPrinterData = createAsyncThunk(
   'usb/getPrinterData',
   async () => {
-    return await window.electron.printer();
+    return await window.invoke.printer();
   }
 );
 

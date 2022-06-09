@@ -13,15 +13,15 @@ const initialState: OsState = {
 };
 
 export const getOsData = createAsyncThunk('os/osinfo', async () => {
-  return await window.electron.os_info();
+  return await window.invoke.os();
 });
 
 export const getVersionData = createAsyncThunk('os/versions', async () => {
-  return await window.electron.software_versions()
+  return await window.invoke.software_versions()
 })
 
 export const getUsersData = createAsyncThunk('os/getUsersData', async () => {
-  return await window.electron.users()
+  return await window.invoke.users()
 })
 
 export const osSlice = createSlice({

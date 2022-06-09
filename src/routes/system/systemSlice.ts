@@ -23,29 +23,29 @@ const initialState: SystemState = {
 export const getSystemData = createAsyncThunk(
   'system/getSystemData',
   async () => {
-    return await window.electron.system();
+    return await window.invoke.system();
   }
 );
 
 export const getUuidData = createAsyncThunk('system/getUuidData', async () => {
-  return await window.electron.uuids();
+  return await window.invoke.uuids();
 });
 
 export const getBiosData = createAsyncThunk('system/getBiosData', async () => {
-  return window.electron.bios();
+  return window.invoke.bios();
 });
 
 export const getBaseboardData = createAsyncThunk(
   'system/getBaseboardData',
   async () => {
-    return window.electron.baseboard();
+    return window.invoke.baseboard();
   }
 );
 
 export const getChassisData = createAsyncThunk(
   'system/getChassisData',
   async () => {
-    return window.electron.chassis();
+    return window.invoke.chassis();
   }
 );
 

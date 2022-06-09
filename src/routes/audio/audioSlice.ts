@@ -11,7 +11,7 @@ const initialState: AudioState = {
 };
 
 export const getAudioData = createAsyncThunk('audio/getAudioData', async () => {
-  return await window.electron.audio();
+  return await window.invoke.audio()
 });
 
 export const graphicsSlice = createSlice({

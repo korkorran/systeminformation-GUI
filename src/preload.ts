@@ -48,6 +48,7 @@ import {
   NETWORK_INTERFACES_INVOKE,
   NETWORK_STATS_INVOKE
 } from './routes/network/constants';
+import { Handlers, handlers } from './config/handlers';
 
 declare global {
   interface Window {
@@ -73,7 +74,8 @@ declare global {
       network_interfaces: () => Promise<NetworkInterfacesData>;
       network_stats: () => Promise<NetworkStatsData>;
       network_connections: () => Promise<NetworkConnectionsData>;
-    };
+    },
+    invoke : Handlers
   }
 }
 
@@ -100,3 +102,11 @@ contextBridge.exposeInMainWorld('electron', {
   network_stats: () => ipcRenderer.invoke(NETWORK_STATS_INVOKE),
   network_connections: () => ipcRenderer.invoke(NETWORK_CONNECTIONS_INVOKE)
 });
+
+const invokeMap = Object.fromEntries(
+  Object.entries(handlers).map(
+    ([k, _]) => [k, () => ipcRenderer.invoke(k)]
+  )
+)
+
+contextBridge.exposeInMainWorld('invoke', invokeMap)

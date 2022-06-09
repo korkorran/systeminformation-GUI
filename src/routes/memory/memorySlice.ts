@@ -14,14 +14,14 @@ const initialState: MemoryState = {
 export const getMemoryData = createAsyncThunk(
   'memory/getMemoryData',
   async () => {
-    return await window.electron.memory();
+    return await window.invoke.memory();
   }
 );
 
 export const getMemoryLayoutData = createAsyncThunk(
   'memory/getMemoryLayoutData',
   async () => {
-    return await window.electron.memory_layout();
+    return await window.invoke.memory_layout();
   }
 );
 

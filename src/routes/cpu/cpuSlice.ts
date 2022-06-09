@@ -11,7 +11,7 @@ const initialState: CpuState = {
 };
 
 export const getCpuData = createAsyncThunk('cpu/getCpuData', async () => {
-  return await window.electron.cpu();
+  return await window.invoke.cpu();
 });
 
 export const cpuSlice = createSlice({

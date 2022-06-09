@@ -13,7 +13,7 @@ const initialState: BatteryState = {
 export const getBatteryData = createAsyncThunk(
   'battery/getBatteryData',
   async () => {
-    return await window.electron.battery();
+    return await window.invoke.battery();
   }
 );
 

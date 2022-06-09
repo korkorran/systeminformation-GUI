@@ -11,7 +11,7 @@ const initialState: UsbState = {
 };
 
 export const getUsbData = createAsyncThunk('usb/getUsbData', async () => {
-  return await window.electron.usb();
+  return await window.invoke.usb();
 });
 
 export const usbSlice = createSlice({
