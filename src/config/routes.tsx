@@ -11,6 +11,7 @@ import { Memory, MEMORY_URL } from "src/routes/memory/memory";
 import { Usb, USB_URL } from "src/routes/usb/usb";
 import { Printer, PRINTER_URL } from "src/routes/printer/printer";
 import { Network, NETWORK_URL } from "src/routes/network/network";
+import { Wifi, WIFI_URL } from "src/routes/wifi/wifi";
 
 export const routes = [
   { path: PROCESSUS_LIST_URL, component: <ProcessusList /> },
@@ -23,5 +24,6 @@ export const routes = [
   { path: MEMORY_URL, component: <Memory />},
   { path: USB_URL, component: <Usb />},
   { path: PRINTER_URL, component: <Printer />},
-  { path: NETWORK_URL, component: <Network />}
+  { path: NETWORK_URL, component: <Network />},
+  { path: WIFI_URL, component: <Wifi />}
 ];

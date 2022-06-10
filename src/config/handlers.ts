@@ -1,3 +1,4 @@
+import SI from 'systeminformation';
 import { audioHandler } from 'src/routes/audio/audioHandler';
 import { batteryHandler } from 'src/routes/battery/batteryHandler';
 import { cpuHandler } from 'src/routes/cpu/cpuHandler';
@@ -25,6 +26,7 @@ import {
   uuidsHandler
 } from 'src/routes/system/systemHandler';
 import { usbHandler } from 'src/routes/usb/usbHandler';
+import { wifiConnections, wifiInterfaces, wifiNetworks } from 'src/routes/wifi/wifiHandler';
 
 
 
@@ -77,6 +79,12 @@ const networkHandlers = {
   network_connections : networkConnectionsHandler
 }
 
+const wifiHandlers = {
+  wifi_networks : wifiNetworks,
+  wifi_interfaces : wifiInterfaces,
+  wifi_connections : wifiConnections
+}
+
 export const handlers = {
   ...osHandlers,
   ...systemHandlers,
@@ -87,7 +95,8 @@ export const handlers = {
   ...memoryHandlers,
   ...usbHandlers,
   ...printerHandlers,
-  ...networkHandlers
+  ...networkHandlers,
+  ...wifiHandlers
 }
 
 export type Handlers = typeof handlers

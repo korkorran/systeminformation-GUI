@@ -8,6 +8,7 @@ import { OS_URL } from 'src/routes/os/os';
 import { PRINTER_URL } from 'src/routes/printer/printer';
 import { SYSTEM_URL } from 'src/routes/system/system';
 import { USB_URL } from 'src/routes/usb/usb';
+import { WIFI_URL } from 'src/routes/wifi/wifi';
 
 export const SIDEBAR_LINK_GRAPHICS = {
   icon: 'bi-arrow-down-right-square-fill',
@@ -69,6 +70,12 @@ export const SIDEBAR_LINK_NETWORK = {
   url: NETWORK_URL
 };
 
+export const SIDEBAR_LINK_WIFI = {
+  icon: 'bi-gear-fill',
+  label: 'Wifi',
+  url: WIFI_URL
+};
+
 export const links = [
   SIDEBAR_LINK_SYSTEM,
   SIDEBAR_LINK_OS,
@@ -79,5 +86,6 @@ export const links = [
   SIDEBAR_LINK_MEMORY,
   SIDEBAR_LINK_USB,
   SIDEBAR_LINK_PRINTER,
-  SIDEBAR_LINK_NETWORK
+  SIDEBAR_LINK_NETWORK,
+  SIDEBAR_LINK_WIFI
 ];
