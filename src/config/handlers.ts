@@ -28,6 +28,7 @@ import {
 import { usbHandler } from 'src/routes/usb/usbHandler';
 import { wifiConnections, wifiInterfaces, wifiNetworks } from 'src/routes/wifi/wifiHandler';
 import { bluetoothDevices } from 'src/routes/bluetooth/bluetoothHandler';
+import { dockerInfo } from 'src/routes/docker/dockerHandler';
 
 
 
@@ -90,6 +91,10 @@ const bluetoothHandlers = {
   bluetooth_devices : bluetoothDevices
 }
 
+const dockerHandlers = {
+  docker_info : dockerInfo
+}
+
 export const handlers = {
   ...osHandlers,
   ...systemHandlers,
@@ -102,7 +107,8 @@ export const handlers = {
   ...printerHandlers,
   ...networkHandlers,
   ...wifiHandlers,
-  ...bluetoothHandlers
+  ...bluetoothHandlers,
+  ...dockerHandlers
 }
 
 export type Handlers = typeof handlers

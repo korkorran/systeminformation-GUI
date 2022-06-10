@@ -2,6 +2,7 @@ import { AUDIO_URL } from 'src/routes/audio/audio';
 import { BATTERY_URL } from 'src/routes/battery/battery';
 import { BLUETOOTH_URL } from 'src/routes/bluetooth/bluetooth';
 import { CPU_URL } from 'src/routes/cpu/cpu';
+import { DOCKER_URL } from 'src/routes/docker/docker';
 import { GRAPHICS_URL } from 'src/routes/graphics/graphics';
 import { MEMORY_URL } from 'src/routes/memory/memory';
 import { NETWORK_URL } from 'src/routes/network/network';
@@ -83,6 +84,13 @@ export const SIDEBAR_LINK_BLUETOOTH = {
   url: BLUETOOTH_URL
 };
 
+export const SIDEBAR_LINK_DOCKER = {
+  icon: 'bi-gear-fill',
+  label: 'Docker',
+  url: DOCKER_URL
+};
+
+
 export const links = [
   SIDEBAR_LINK_SYSTEM,
   SIDEBAR_LINK_OS,
@@ -95,5 +103,6 @@ export const links = [
   SIDEBAR_LINK_PRINTER,
   SIDEBAR_LINK_NETWORK,
   SIDEBAR_LINK_WIFI,
-  SIDEBAR_LINK_BLUETOOTH
+  SIDEBAR_LINK_BLUETOOTH,
+  SIDEBAR_LINK_DOCKER,
 ];

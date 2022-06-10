@@ -13,6 +13,7 @@ import { Printer, PRINTER_URL } from "src/routes/printer/printer";
 import { Network, NETWORK_URL } from "src/routes/network/network";
 import { Wifi, WIFI_URL } from "src/routes/wifi/wifi";
 import { Bluetooth, BLUETOOTH_URL } from "src/routes/bluetooth/bluetooth";
+import { Docker, DOCKER_URL } from "src/routes/docker/docker";
 
 export const routes = [
   { path: PROCESSUS_LIST_URL, component: <ProcessusList /> },
@@ -27,5 +28,6 @@ export const routes = [
   { path: PRINTER_URL, component: <Printer />},
   { path: NETWORK_URL, component: <Network />},
   { path: WIFI_URL, component: <Wifi />},
-  { path: BLUETOOTH_URL, component: <Bluetooth />}
+  { path: BLUETOOTH_URL, component: <Bluetooth />},
+  { path: DOCKER_URL, component: <Docker />}
 ];
