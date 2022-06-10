@@ -1,18 +1,13 @@
 import React, { useEffect } from "react";
+import { useQuery } from "react-query";
 
-import { useAppSelector, useAppDispatch } from 'src/config/hooks';
 import Carpet from "src/features/carpet/carpet";
-import { getGraphicsData } from "./graphicsSlice";
 
 export const Graphics = () => {
-  const dispatch = useAppDispatch();
-  const graphicsData = useAppSelector(root => root.graphics.graphicsData)
-  const controllers = graphicsData?.controllers
-  const displays = graphicsData?.displays
 
-  useEffect(() => {
-    dispatch(getGraphicsData());
-  }, [])
+  const graphics = useQuery('graphics', window.invoke.graphics)
+  const controllers = graphics?.data?.controllers
+  const displays = graphics?.data?.displays
 
   return (<Carpet>
 
@@ -25,7 +20,7 @@ export const Graphics = () => {
         <th scope="col">Model</th>
         <th scope="col">Bus</th>
         <th scope="col">VRAM Size(MB)</th>
-        <th scope="col">Dynamicly allocated RAM</th>
+        <th scope="col">Dynamically allocated RAM</th>
         </tr>
       </thead>
       <tbody>
@@ -76,3 +71,5 @@ export const Graphics = () => {
   </Carpet>
 )
 }
+
+export const GRAPHICS_URL = '/graphics';

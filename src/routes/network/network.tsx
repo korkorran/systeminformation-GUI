@@ -1,29 +1,20 @@
 import React, { useEffect } from "react";
+import { useQuery } from "react-query";
 
-import { useAppSelector, useAppDispatch } from 'src/config/hooks';
 import Carpet from "src/features/carpet/carpet";
 import { Detail } from "src/features/common/detail";
 import { DetailCard } from "src/features/common/detailCard";
-import { networkConnections } from "systeminformation";
-import { getNetworkConnectionsData, getNetworkInterfacesData, getNetworkStatsData } from "./networkSlice";
 
 export const Network = () => {
-  const dispatch = useAppDispatch();
-  const networkInterfacesData = useAppSelector(root => root.network.networkInterfacesData);
-  const networkStatsData = useAppSelector(root => root.network.networkStatsData);
-  const networkConnectionsData = useAppSelector(root => root.network.networkConnectionsData);
-
-  useEffect(() => {
-    dispatch(getNetworkInterfacesData());
-    dispatch(getNetworkStatsData());
-    dispatch(getNetworkConnectionsData());
-  }, [])
+  const networkInterfaces = useQuery('network_interfaces', window.invoke.network_interfaces)
+  const networkStats = useQuery('network_stats', window.invoke.network_stats);
+  const networkConnections = useQuery('network_connections', window.invoke.network_connections);
 
   return (<Carpet>
     <h2>Network Interfaces</h2>
 
 <>
-    {networkInterfacesData && networkInterfacesData.map((i, index) => (
+    {networkInterfaces?.data && networkInterfaces.data.map((i, index) => (
       <DetailCard label={i.iface} key={index}>
         <Detail label="Interface name" value={i.ifaceName} />
         {/* <Detail label="Default" value={i.} /> */}
@@ -52,7 +43,7 @@ export const Network = () => {
     <h2>Network Stats</h2>
 
 <>
-    {networkStatsData && networkStatsData.map((i, index) => (
+    {networkStats?.data && networkStats.data.map((i, index) => (
       <DetailCard label={i.iface} key={index}>
         <Detail label="operstate" value={i.operstate} />
         <Detail label="received bytes overall" value={i.rx_bytes} />
@@ -72,7 +63,7 @@ export const Network = () => {
     <h2>Network Connections</h2>
 
 <>
-    {networkConnectionsData && networkConnectionsData.map((c, index) => (
+    {networkConnections?.data && networkConnections.data.map((c, index) => (
       <DetailCard label={`${c.localAddress}:${c.localPort}`} key={index}>
         <Detail label="Protocol" value={c.protocol} />
         <Detail label="peer address" value={c.peerAddress} />
@@ -87,3 +78,5 @@ export const Network = () => {
   </Carpet>
 )
 }
+
+export const NETWORK_URL = '/network';

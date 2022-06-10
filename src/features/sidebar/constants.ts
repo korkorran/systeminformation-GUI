@@ -1,14 +1,13 @@
-import { AUDIO_URL } from 'src/routes/audio/constants';
-import { BATTERY_URL } from 'src/routes/battery/constants';
-import { CPU_URL } from 'src/routes/cpu/constants';
-import { GRAPHICS_URL } from 'src/routes/graphics/constants';
-import { MEMORY_URL } from 'src/routes/memory/constants';
-import { NETWORK_URL } from 'src/routes/network/constants';
-import { OS_URL } from 'src/routes/os/constants';
-import { PRINTER_URL } from 'src/routes/printer/constants';
-import { PROCESSUS_LIST_URL } from 'src/routes/processus/constants';
-import { SYSTEM_URL } from 'src/routes/system/constants';
-import { USB_URL } from 'src/routes/usb/constants';
+import { AUDIO_URL } from 'src/routes/audio/audio';
+import { BATTERY_URL } from 'src/routes/battery/battery';
+import { CPU_URL } from 'src/routes/cpu/cpu';
+import { GRAPHICS_URL } from 'src/routes/graphics/graphics';
+import { MEMORY_URL } from 'src/routes/memory/memory';
+import { NETWORK_URL } from 'src/routes/network/network';
+import { OS_URL } from 'src/routes/os/os';
+import { PRINTER_URL } from 'src/routes/printer/printer';
+import { SYSTEM_URL } from 'src/routes/system/system';
+import { USB_URL } from 'src/routes/usb/usb';
 
 export const SIDEBAR_LINK_GRAPHICS = {
   icon: 'bi-arrow-down-right-square-fill',

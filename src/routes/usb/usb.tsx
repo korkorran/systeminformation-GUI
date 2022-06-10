@@ -1,25 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useQuery } from "react-query";
 
-import { useAppSelector, useAppDispatch } from 'src/config/hooks';
 import Carpet from "src/features/carpet/carpet";
 import { Detail } from "src/features/common/detail";
 import { DetailCard } from "src/features/common/detailCard";
-import { getUsbData } from "./usbSlice";
 
 export const Usb = () => {
-  const dispatch = useAppDispatch();
-  const usbData = useAppSelector(root => root.usb.usbData);
-
-  useEffect(() => {
-    dispatch(getUsbData());
-  }, [])
+  const usb = useQuery('usb', window.invoke.usb);
 
   return (<Carpet>
 
     <h2>Usb devices</h2>
 
     <>
-    {usbData && usbData.map((d, i) => (
+    {usb.data && usb.data.map((d, i) => (
       <DetailCard label={d.name} key={i}>
         <Detail label="ID" value={d.id} />
         <Detail label="Type" value={d.type} />
@@ -38,3 +32,5 @@ export const Usb = () => {
   </Carpet>
 )
 }
+
+export const USB_URL = '/usb';

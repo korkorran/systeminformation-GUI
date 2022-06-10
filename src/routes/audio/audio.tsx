@@ -1,24 +1,19 @@
 import React, { useEffect } from "react";
+import { useQuery } from "react-query";
 
-import { useAppSelector, useAppDispatch } from 'src/config/hooks';
 import Carpet from "src/features/carpet/carpet";
 import { Detail } from "src/features/common/detail";
 import { DetailCard } from "src/features/common/detailCard";
-import { getAudioData } from "./audioSlice";
 
 export const Audio = () => {
-  const dispatch = useAppDispatch();
-  const audioData = useAppSelector(root => root.audio.audioData);
 
-  useEffect(() => {
-    dispatch(getAudioData());
-  }, [])
+  const audio = useQuery('audio', window.invoke.audio)
 
   return (<Carpet>
     <h2>Audio devices</h2>
 
 <>
-    {audioData && audioData.map(d => (
+    {audio?.data && audio.data.map(d => (
       <DetailCard label={d.name} key={d.id}>
         <Detail label="ID" value={d.id} />
         <Detail label="Manufacturer" value={d.manufacturer} />
@@ -37,3 +32,5 @@ export const Audio = () => {
   </Carpet>
 )
 }
+
+export const AUDIO_URL = '/audio';

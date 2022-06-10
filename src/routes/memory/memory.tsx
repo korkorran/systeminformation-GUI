@@ -1,39 +1,32 @@
 import React, { useEffect } from "react";
+import { useQuery } from "react-query";
 
-import { useAppSelector, useAppDispatch } from 'src/config/hooks';
 import Carpet from "src/features/carpet/carpet";
 import { Detail } from "src/features/common/detail";
 import { DetailCard } from "src/features/common/detailCard";
-import { getMemoryData, getMemoryLayoutData } from "./memorySlice";
 
 export const Memory = () => {
-  const dispatch = useAppDispatch();
-  const memoryData = useAppSelector(root => root.memory.memoryData);
-  const memLayoutData = useAppSelector(root => root.memory.memoryLayoutData);
-
-  useEffect(() => {
-    dispatch(getMemoryData());
-    dispatch(getMemoryLayoutData());
-  }, [])
+  const memory = useQuery('memory', window.invoke.memory);
+  const memLayout = useQuery('memory_layout', window.invoke.memory_layout)
 
   return (<Carpet>
 
     <DetailCard label="Memory">
-      <Detail label="Total (bytes)" value={memoryData?.total} />
-      <Detail label="Free" value={memoryData?.free} />
-      <Detail label="Used" value={memoryData?.used} />
-      <Detail label="Used actively" value={memoryData?.active} />
-      <Detail label="Used by buffer & cache" value={memoryData?.buffcache} />
-      <Detail label="Available" value={memoryData?.available} />
-      <Detail label="Swap total" value={memoryData?.swaptotal} />
-      <Detail label="Swap used" value={memoryData?.swapused} />
-      <Detail label="Swap free" value={memoryData?.swapfree} />
+      <Detail label="Total (bytes)" value={memory?.data?.total} />
+      <Detail label="Free" value={memory?.data?.free} />
+      <Detail label="Used" value={memory?.data?.used} />
+      <Detail label="Used actively" value={memory?.data?.active} />
+      <Detail label="Used by buffer & cache" value={memory?.data?.buffcache} />
+      <Detail label="Available" value={memory?.data?.available} />
+      <Detail label="Swap total" value={memory?.data?.swaptotal} />
+      <Detail label="Swap used" value={memory?.data?.swapused} />
+      <Detail label="Swap free" value={memory?.data?.swapfree} />
     </DetailCard>
 
     <h2>Memory Layout</h2>
 
     <>
-    {memLayoutData && memLayoutData.map(m => (
+    {memLayout?.data && memLayout.data.map(m => (
       <DetailCard label={m.bank} key={m.bank}>
         <Detail label="Size" value={m.size} />
         <Detail label="Type" value={m.type} />
@@ -54,3 +47,5 @@ export const Memory = () => {
   </Carpet>
 )
 }
+
+export const MEMORY_URL = '/memory';

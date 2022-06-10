@@ -8,13 +8,15 @@ import { Header } from "./features/header/header";
 import { Sidebar } from "./features/sidebar/sidebar";
 import { routes } from "./config/routes";
 import './styles/style.scss';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-
+const queryClient = new QueryClient();
 const container = document.getElementById('app');
 const root = createRoot(container); 
 
 root.render(<>
   <Provider store={store}>
+  <QueryClientProvider client={queryClient}>
   <MemoryRouter>
     <Header/>
     <div className="App__content">
@@ -27,5 +29,6 @@ root.render(<>
     </Routes>
     </div>
   </MemoryRouter>
+  </QueryClientProvider>
   </Provider>
 </>);
