@@ -1,7 +1,7 @@
 {
   "name": "systeminformationgui",
   "productName": "systeminformationGUI",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A graphical user interface for System Information",
   "main": ".webpack/main",
   "scripts": {

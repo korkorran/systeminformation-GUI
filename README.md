@@ -1,7 +1,15 @@
-# System Info
+# System Information GUI
 
 A Gui around [systeminformation.js](https://systeminformation.io/)
 
-## Architecture
+Sometimes when you start a new Os, you look after information about data inside your system. If you are not familiar with your system, it can get tedious to retrieve this data. SystemInformationGUI can act as a witness to tell you objective information about the state of your system.
 
-![architecture](./SystemInfo.png)
+## Some views
+
+![view1](./docs/systeminfo-view1.png)
+
+![view2](./docs/systeminfo-view2.png)
+
+![view3](./docs/systeminfo-view3.png)
+
+

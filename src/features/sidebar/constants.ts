@@ -13,79 +13,79 @@ import { USB_URL } from 'src/routes/usb/usb';
 import { WIFI_URL } from 'src/routes/wifi/wifi';
 
 export const SIDEBAR_LINK_GRAPHICS = {
-  icon: 'bi-arrow-down-right-square-fill',
+  icon: 'bi-bounding-box-circles',
   label: 'Graphics',
   url: GRAPHICS_URL
 };
 
 export const SIDEBAR_LINK_SYSTEM = {
-  icon: 'bi-asterisk',
+  icon: 'bi-gear-fill',
   label: 'System',
   url: SYSTEM_URL
 };
 
 export const SIDEBAR_LINK_OS = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-window-dock',
   label: 'Os',
   url: OS_URL
 };
 
 export const SIDEBAR_LINK_CPU = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-cpu',
   label: 'Cpu',
   url: CPU_URL
 };
 
 export const SIDEBAR_LINK_AUDIO = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-volume-up',
   label: 'Audio',
   url: AUDIO_URL
 };
 
 export const SIDEBAR_LINK_BATTERY = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-battery-full',
   label: 'Battery',
   url: BATTERY_URL
 };
 
 export const SIDEBAR_LINK_MEMORY = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-memory',
   label: 'Memory',
   url: MEMORY_URL
 };
 
 export const SIDEBAR_LINK_USB = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-usb-symbol',
   label: 'Usb',
   url: USB_URL
 };
 
 export const SIDEBAR_LINK_PRINTER = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-printer',
   label: 'Printer',
   url: PRINTER_URL
 };
 
 export const SIDEBAR_LINK_NETWORK = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-hdd-network',
   label: 'Network',
   url: NETWORK_URL
 };
 
 export const SIDEBAR_LINK_WIFI = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-wifi',
   label: 'Wifi',
   url: WIFI_URL
 };
 
 export const SIDEBAR_LINK_BLUETOOTH = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-bluetooth',
   label: 'Bluetooth',
   url: BLUETOOTH_URL
 };
 
 export const SIDEBAR_LINK_DOCKER = {
-  icon: 'bi-gear-fill',
+  icon: 'bi-basket3',
   label: 'Docker',
   url: DOCKER_URL
 };

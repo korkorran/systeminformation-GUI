@@ -8,11 +8,12 @@ export const Header = () => (
       className="d-flex align-items-center mb-3 mb-md-0 me-md-auto ml-4 text-dark"
     >
       <i
-        className="bi bi-signpost-split-fill ms-5 me-2"
+        className="bi bi-pc-display-horizontal ms-5 me-2"
         style={{ fontSize: "2rem", color: "orange" }}
       />
 
-      <span className="fs-4">System Information GUI </span>
+      <span className="fs-4">System Info </span>
     </Link>
+    <h6 className='me-3 mt-2'>A wrapper of <a href='https://github.com/sebhildebrandt/systeminformation' target="_blank" rel="noopener" className='text-dark'>Systeminformation.js</a></h6>
   </header>
 );
