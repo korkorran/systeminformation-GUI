@@ -27,6 +27,7 @@ import {
 } from 'src/routes/system/systemHandler';
 import { usbHandler } from 'src/routes/usb/usbHandler';
 import { wifiConnections, wifiInterfaces, wifiNetworks } from 'src/routes/wifi/wifiHandler';
+import { bluetoothDevices } from 'src/routes/bluetooth/bluetoothHandler';
 
 
 
@@ -85,6 +86,10 @@ const wifiHandlers = {
   wifi_connections : wifiConnections
 }
 
+const bluetoothHandlers = {
+  bluetooth_devices : bluetoothDevices
+}
+
 export const handlers = {
   ...osHandlers,
   ...systemHandlers,
@@ -96,7 +101,8 @@ export const handlers = {
   ...usbHandlers,
   ...printerHandlers,
   ...networkHandlers,
-  ...wifiHandlers
+  ...wifiHandlers,
+  ...bluetoothHandlers
 }
 
 export type Handlers = typeof handlers

@@ -1,5 +1,6 @@
 import { AUDIO_URL } from 'src/routes/audio/audio';
 import { BATTERY_URL } from 'src/routes/battery/battery';
+import { BLUETOOTH_URL } from 'src/routes/bluetooth/bluetooth';
 import { CPU_URL } from 'src/routes/cpu/cpu';
 import { GRAPHICS_URL } from 'src/routes/graphics/graphics';
 import { MEMORY_URL } from 'src/routes/memory/memory';
@@ -76,6 +77,12 @@ export const SIDEBAR_LINK_WIFI = {
   url: WIFI_URL
 };
 
+export const SIDEBAR_LINK_BLUETOOTH = {
+  icon: 'bi-gear-fill',
+  label: 'Bluetooth',
+  url: BLUETOOTH_URL
+};
+
 export const links = [
   SIDEBAR_LINK_SYSTEM,
   SIDEBAR_LINK_OS,
@@ -87,5 +94,6 @@ export const links = [
   SIDEBAR_LINK_USB,
   SIDEBAR_LINK_PRINTER,
   SIDEBAR_LINK_NETWORK,
-  SIDEBAR_LINK_WIFI
+  SIDEBAR_LINK_WIFI,
+  SIDEBAR_LINK_BLUETOOTH
 ];
