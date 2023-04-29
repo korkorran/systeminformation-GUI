@@ -6,10 +6,9 @@ Sometimes when you start a new Os, you look after information about data inside 
 
 ## Some views
 
-![view1](./docs/systeminfo-view1.png)
+![view1](./docs/systeminfo-view.png)
 
-![view2](./docs/systeminfo-view2.png)
+## Licence
 
-![view3](./docs/systeminfo-view3.png)
-
+MIT
 
