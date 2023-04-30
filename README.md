@@ -13,11 +13,26 @@ System, OS, Graphics, CPU, Audio, Battery, Memory, USB, Printer, Network, Wifi, 
 
 ![view1](./docs/systeminfo-view.png)
 
+## Installation
+
+Needs Node 14.17.5 or higher.
+After cloning this repository, install dependencies
+
+```
+npm install
+```
+
+Launch dev mode
+```
+npm start
+```
+
+
 ## Licence
 
 MIT
 
 ## Contribute
 
-Feel free to contribute to this project and open a MR for new features.
+Feel free to contribute to this project and MR for new features are welcome.
 If you have any question, raise a Github issue, we will answer it on time.
