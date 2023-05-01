@@ -14,7 +14,31 @@ export const Network = () => {
     <h2>Network Interfaces</h2>
 
 <>
-    {networkInterfaces?.data && networkInterfaces.data.map((i, index) => (
+    {networkInterfaces?.data && !Array.isArray(networkInterfaces.data) && 
+      <DetailCard label={networkInterfaces.data.iface}>
+        <Detail label="Interface name" value={networkInterfaces.data.ifaceName} />
+        {/* <Detail label="Default" value={i.} /> */}
+        <Detail label="IP4 address" value={networkInterfaces.data.ip4} />
+        <Detail label="IP4 subnet mask" value={networkInterfaces.data.ip4subnet} />
+        <Detail label="IP6 address" value={networkInterfaces.data.ip6} />
+        <Detail label="IP6 subnet mask" value={networkInterfaces.data.ip6subnet} />
+        <Detail label="MAC address" value={networkInterfaces.data.mac} />
+        <Detail label="Internal" value={networkInterfaces.data.internal} />
+        <Detail label="Virtual" value={networkInterfaces.data.virtual} />
+        <Detail label="operstate" value={networkInterfaces.data.operstate} />
+        <Detail label="type" value={networkInterfaces.data.type} />
+        <Detail label="duplex" value={networkInterfaces.data.duplex} />
+        <Detail label="Maximum Transmission Unit" value={networkInterfaces.data.mtu} />
+        <Detail label="Speed (Mbit/s)" value={networkInterfaces.data.speed} />
+        <Detail label="DHCP IP address" value={networkInterfaces.data.dhcp} />
+        <Detail label="DNS suffix" value={networkInterfaces.data.dnsSuffix} />
+        <Detail label="IEEE 802.1x Auth" value={networkInterfaces.data.ieee8021xAuth} />
+        <Detail label="IEEE 802.1x State" value={networkInterfaces.data.ieee8021xState} />
+        <Detail label="# changes up/down" value={networkInterfaces.data.carrierChanges} />
+      </DetailCard>
+    }
+
+    {networkInterfaces?.data && Array.isArray(networkInterfaces.data) && networkInterfaces.data.map((i, index) => (
       <DetailCard label={i.iface} key={index}>
         <Detail label="Interface name" value={i.ifaceName} />
         {/* <Detail label="Default" value={i.} /> */}

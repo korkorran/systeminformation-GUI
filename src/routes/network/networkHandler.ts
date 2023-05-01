@@ -1,9 +1,9 @@
 import SI from 'systeminformation';
 
 export type NetworkInterfacesData =
-  SI.Systeminformation.NetworkInterfacesData[];
+  SI.Systeminformation.NetworkInterfacesData;
 
-export const networkInterfaceHandler: () => Promise<NetworkInterfacesData> =
+export const networkInterfaceHandler: () => Promise<NetworkInterfacesData | NetworkInterfacesData[]> =
   () => {
     return SI.networkInterfaces();
   };
